@@ -67,7 +67,7 @@ public class Game extends Board {
     }
 
     public void place(int p, Player curPlayer){
-        char symbol =' ';
+        char symbol = ' ';
         if (curPlayer.type.equals("player")){
             symbol ='x';
         } else if (curPlayer.type.equals("cpu")){
@@ -100,7 +100,7 @@ public class Game extends Board {
             if (newBoard.board[0][i] == symbol && newBoard.board[1][i] == symbol && newBoard.board[2][i] == symbol) return true; // Check columns
         }
         if (newBoard.board[0][0] == symbol && newBoard.board[1][1] == symbol && newBoard.board[2][2] == symbol) return true; // Check diagonal
-        if (newBoard.board[0][2] == symbol && newBoard.board[1][1] == symbol && newBoard.board[2][0] == symbol) return true; // Check anti-diagonal
-        return false; // No winning combination found
+        return newBoard.board[0][2] == symbol && newBoard.board[1][1] == symbol && newBoard.board[2][0] == symbol; // Check anti-diagonal
+// No winning combination found
     }
 }
